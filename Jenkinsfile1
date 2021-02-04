@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+     tools {                    //Usually comes out of stages block
+        maven 'maven-3'         //This incudes maven binary to PATH..So we can use mvn directly using shell
+    }
+    stages{
+        stage('Git checkout'){
+            steps{
+                git 'https://github.com/devopsproject7/harikammana_newdevops.git' 
+            }
+        }
+        stage('Build'){
+            steps{
+                 sh 'mvn package'
+            }
+        }
+        stage('Upload artifacts'){
+            steps{
+                 sh 'mvn package'
+            }
+        }
+    
+    
+
+
+
+    }
+}
+
+
